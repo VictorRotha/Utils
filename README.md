@@ -2,4 +2,5 @@
 
 - Datastoremanager
 - Permissionmanager
+- AdManager
   
