@@ -17,10 +17,25 @@ import kotlinx.coroutines.flow.update
 
 //Helper class to show AdMob ads and handle GDPR and CCPA consent
 //has to be injected as singleton
-//also: set app id in manifest
+
+//set app id in manifest
+//<!--        AdMob Test Id: "ca-app-pub-3940256099942544~3347511713"-->
+//<meta-data
+//  android:name="com.google.android.gms.ads.APPLICATION_ID"
+//  android:value="ca-app-pub-3940256099942544~3347511713"
+///>
+
 class AdManager {
 
-    val TAG = "AdManager"
+    companion object {
+
+        const val TAG = "AdManager"
+
+        //put real ids in object outside git repo
+        const val ADMOB_TEST_ID = "ca-app-pub-3940256099942544/6300978111"
+        const val BANNER_TEST_ID = "ca-app-pub-3940256099942544/9214589741"
+
+    }
 
     private lateinit var consentInformation: ConsentInformation
 
@@ -42,7 +57,7 @@ class AdManager {
         consentInformation = UserMessagingPlatform.getConsentInformation(context)
     }
 
-    //calls consent form if required
+    //calls consent form if required (ie onResume)
     fun updateConsentInformation(activity: ComponentActivity) {
 
         Log.d(TAG, "updateConsentInformation: ")
@@ -99,9 +114,7 @@ class AdManager {
             initMobileAds(activity)
         }
 
-
     }
-
 
     //initialize mobile ads
     //if NOT initialized here, ads are implicitly initialized when ads are loaded!
@@ -123,9 +136,6 @@ class AdManager {
 
         //initialize apps
         MobileAds.initialize(context) { }
-
-
-
     }
 
     //change consent / privacy options (ie in settings)
@@ -140,7 +150,6 @@ class AdManager {
                 onError(it.errorCode, it.message)
             }
         }
-
     }
 
 
