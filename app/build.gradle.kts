@@ -73,4 +73,6 @@ dependencies {
     implementation(libs.play.services.ads)
     //show ad consent
     implementation(libs.user.messaging.platform)
+
+    implementation(libs.androidx.compose.material.icons.extended)
 }

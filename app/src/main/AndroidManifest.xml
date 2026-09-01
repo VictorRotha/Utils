@@ -15,16 +15,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Utils">
-        <!--        always use AdMob test id in tests: "ca-app-pub-3940256099942544~3347511713"-->
+
+        <!-- always use AdMob test id in tests: "ca-app-pub-3940256099942544~3347511713" -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"
-            />
+            android:value="ca-app-pub-3940256099942544~3347511713" />
+
         <activity
             android:name=".permissions.PermissionsActivity"
-            android:exported="true"
+            android:exported="false"
             android:label="@string/title_activity_permissions"
             android:theme="@style/Theme.Utils">
+
+        </activity>
+        <activity
+            android:name=".lazycolumndrag.DragDropExampleActivity"
+            android:exported="true"
+            android:label="@string/title_activity_drag_drop_example"
+            android:theme="@style/Theme.Utils"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
